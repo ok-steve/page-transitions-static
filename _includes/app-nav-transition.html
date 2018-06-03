@@ -13,7 +13,7 @@
       class="{% if user.name == include.selectedUser.name %}profile-photo{% else %}profile-photo-secondary{% endif %} profile-{{ forloop.index0 }}"
     >
       <div class="online"></div>
-      <img src="{{ user.img }}" />
+      <img src="{{ user.img | relative_url }}" />
     </a>
   {% endfor %}
 
