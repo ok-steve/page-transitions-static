@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+  class="{{ include.class | default: "" }}"
+  width="{{ include.width | default: 18 }}"
+  height="{{ include.height | default: 18 }}"
+  viewBox="0 0 24 24"
+  aria-labelledby="{{ include.iconName | default: 'box' }}"
+  role="presentation"
+>
+  <title id="{{ include.iconName | default: 'box' }}" lang="en">{{ include.iconName | default: 'box' }} icon</title>
+  <g fill="{{ include.iconColor | default: 'currentColor' }}">
+    {% include {{ include.icon }} %}
+  </g>
+</svg>

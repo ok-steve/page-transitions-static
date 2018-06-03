@@ -1,0 +1,56 @@
+{% assign indexedUser = 0 %}
+
+{% for user in site.data.users %}
+  {% if user.name == include.selectedUser.name %}
+    {% assign indexedUser = forloop.index0 %}
+  {% endif %}
+{% endfor %}
+
+<div class="app-nav-transition" data-selected-user-index="{{ indexedUser }}">
+  {% for user in site.data.users %}
+    <a href="{{ user.username | prepend: "/" | append: "/group" | relative_url }}"
+      {% if include.pageName == "group" %} data-target="profile.profile" data-action="click->profile#changeUser"{% endif %}
+      class="{% if user.name == include.selectedUser.name %}profile-photo{% else %}profile-photo-secondary{% endif %} profile-{{ forloop.index0 }}"
+    >
+      <div class="online"></div>
+      <img src="{{ user.img }}" />
+    </a>
+  {% endfor %}
+
+  <button data-action="click->follow#toggleFollow" data-target="follow.followButton" class="follow">
+    <span class="is-following">&#10004; Following</span>
+    <span class="isnt-following">Follow</span>
+  </button>
+
+  <h2 class="profile-name">
+    {% if include.pageName == "group" %}
+      <span class="user-trip">{{ include.selectedUser.trips[0] }}</span>
+    {% else %}
+      <span>{{ include.selectedUser.name }}</span>
+    {% endif %}
+  </h2>
+
+  {% if include.pageName == "index" %}
+    <div class="side-icon">
+      {% include icon-base.html iconName="mail" iconColor="white" width="22" height="22" icon="icon-mail.html" %}
+    </div>
+  {% else %}
+    <div data-controller="place" data-action="click->place#addPlace" class="side-icon" key="sideicon">
+      {% include icon-base.html iconName="plus" class="plus" icon="icon-plus.html" %}
+    </div>
+  {% endif %}
+
+  <div class="saveinfo">Saved!</div>
+
+  <aside>
+    <p class="map-pin">
+      {% include icon-base.html iconName="map pin" icon="icon-map-pin.html" %}
+      United States
+    </p>
+
+    <p class="calendar">
+      {% include icon-base.html iconName="calendar" icon="icon-calendar.html" %}
+      {{ include.selectedUser.days }} days traveling
+    </p>
+  </aside>
+</div>

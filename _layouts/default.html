@@ -4,9 +4,24 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans|Playfair+Display">
   <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.1.1/turbolinks.js"></script>
 </head>
 <body>
-  {{ content }}
+  <div>
+    {{ content }}
+
+    {% include app-footer.html %}
+  </div>
+
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.0/easing/EasePack.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.0/TweenMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.0/TimelineMax.min.js"></script>
+  <script src="https://unpkg.com/stimulus@1.0.1/dist/stimulus.umd.js"></script>
+  <script src="https://unpkg.com/morphdom@2.3.3/dist/morphdom-umd.min.js"></script>
+  <script src="https://unpkg.com/mapbox-gl@0.45.0/dist/mapbox-gl.js"></script>
+  <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
 </body>
 </html>

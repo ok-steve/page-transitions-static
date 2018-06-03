@@ -1,0 +1,11 @@
+<div>
+  {% assign rating = include.rating | default: 4 %}
+
+  {% for n in (1..rating) %}
+    {% include icon-base.html iconName="full star" iconColor="orangered" icon="icon-star-full.html" %}
+  {% endfor %}
+
+  {% for x in (rating..4) %}
+    {% include icon-base.html iconName="empty star" iconColor="orangered" icon="icon-star-empty.html" %}
+  {% endfor %}
+</div>

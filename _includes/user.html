@@ -1,0 +1,23 @@
+{% assign user = site.data.users | where: "name", include.username | first %}
+
+{% include app-navigation.html selectedUser=user pageName="index" %}
+
+<main class="page-user">
+  <div class="places">
+    {% for place in site.data.places %}
+    <div class="location">
+      <img src="{{ place.img | relative_url }}" alt="{{ place.name }}" />
+      <h2>{{ place.name }}</h2>
+      <p><strong>Rating: {{ place.rating }}</strong></p>
+      <p>{{ place.description }}</p>
+      <hr />
+    </div>
+    {% endfor %}
+  </div>
+  <div class="mapcontain" data-controller="mapcontain">
+    <p>
+      {% include icon-base.html iconName="mappin" icon="icon-map-pin.html" %}
+      Checked in at Honolulu location
+    </p>
+  </div>
+</main>

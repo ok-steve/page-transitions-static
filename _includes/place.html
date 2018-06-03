@@ -1,0 +1,27 @@
+{% assign user = site.data.users | where: "name", include.username | first %}
+
+{% include app-navigation.html selectedUser=user pageName="place" %}
+
+<main class="page-place">
+  <div class="places">
+    <p class="top">{{ user.name }}&rsquo;s Places</p>
+    <h1>{{ places[0].name }}</h1>
+    <p><strong>Rating: {{ places[0].rating }}</strong></p>
+    <div class="stars">
+      {% include app-star-rating.html %}
+    </div>
+
+    <div class="main-img"></div>
+    <p>{{ places[0].description }}</p>
+  </div>
+
+  <aside class="sidebar">
+    <h3>Other Trips</h3>
+    <div v-for="place in places" class="location" :key="place.name">
+      <img :src="place.img" :alt="place.name" />
+      <p class="top"><strong>{{ place.name }}</strong></p>
+      <p>{{ place.description }}</p>
+      <hr />
+    </div>
+  </aside>
+</main>

@@ -1,0 +1,30 @@
+{% assign firstName = include.selectedUser.name | split: " " | first %}
+<header class="{{ include.pageName }} app-navigation" data-controller="navigation">
+  <div class="bk-img">
+    <div class="header-img1{% if include.pageName == "index" %} is-active{% endif %}"></div>
+    <div class="header-img2{% if include.pageName == "place" %} is-active{% endif %}"></div>
+    <div class="header-img3{% if include.pageName == "group" %} is-active{% endif %}"></div>
+  </div>
+
+  <div class="nav-wrapper">
+    <nav data-controller="follow">
+      <ul>
+        <li><a{% if include.pageName == "index" %} class="nuxt-link-active nuxt-link-exact-active"{% endif %} href=".">{{ firstName }}&rsquo;s Home</a></li>
+        <li><a{% if include.pageName == "place" %} class="nuxt-link-active nuxt-link-exact-active"{% endif %} href="./place">{{ firstName }}&rsquo;s Places</a></li>
+        <li><a{% if include.pageName == "group" %} class="nuxt-link-active nuxt-link-exact-active"{% endif %} href="./group">{{ firstName }}&rsquo;s Group Trips</a></li>
+      </ul>
+
+      <div data-action="click->navigation#toggleMenu">
+        {% include icon-base.html iconName="menu" class="menu" iconColor="white" width=28 height=28 icon="icon-three-dot.html" %}
+      </div>
+
+      {% include app-menu-drawer.html firstName=firstName %}
+
+      {% include app-nav-transition.html selectedUser=include.selectedUser pageName=include.pageName %}
+
+      {% if include.pageName == "index" %}
+        {% include app-stats.html selectedUser=include.selectedUser %}
+      {% endif %}
+    </nav>
+  </div>
+</header>
