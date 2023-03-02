@@ -20,7 +20,7 @@ description: > # this means to ignore newlines until "baseurl:"
 baseurl: "/page-transitions-static" # the subpath of your site, e.g. /blog
 url: "https://stevecherry.net" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
-github_username:  sccherry
+github_username: ok-steve
 
 # Build settings
 markdown: kramdown
