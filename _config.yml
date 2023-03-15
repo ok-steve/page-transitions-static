@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Page Transitions
-email: stevenccherry@gmail.com
+email: steve@stevecherry.net
 description: > # this means to ignore newlines until "baseurl:"
   Native-like Page Transitions with Jekyll, A Travel App
 baseurl: "/page-transitions-static" # the subpath of your site, e.g. /blog
